@@ -277,21 +277,22 @@
         .reveal-text { filter: blur(10px); opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-text.visible { filter: blur(0); opacity: 1; transform: translateY(0); }
 
-        /* Estilos del menú flotante centrado a la izquierda */
+        /* Estilos del menú flotante centrado a la derecha */
         #mobile-nav-container {
             position: fixed;
             top: 50%;
-            left: 0;
-            transform: translateY(-50%) translateX(-20px); /* Empieza un poco oculto a la izquierda */
+            right: 0;
+            left: auto;
+            transform: translateY(-50%) translateX(20px); /* Empieza un poco oculto a la derecha */
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Alinea a la izquierda */
+            align-items: flex-end; /* Alinea a la derecha */
             gap: 10px;
             pointer-events: none;
             transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
-            padding-left: 16px; /* Espacio desde el borde */
+            padding-right: 16px; /* Espacio desde el borde */
         }
         #mobile-nav-container.visible { 
             opacity: 1; 
@@ -299,21 +300,45 @@
             pointer-events: auto; 
         }
         #mobile-nav-toggle {
-            width: 50px; height: 50px; background: rgba(17, 17, 17, 0.9); backdrop-filter: blur(10px); border: 2px solid #FFD700; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: all 0.3s ease;
+            width: 60px; height: 60px; /* Tamaño ajustado al botón de WhatsApp */
+            background: rgba(17, 17, 17, 0.9); 
+            backdrop-filter: blur(10px); 
+            border: 2px solid #FFD700; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #FFD700; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+            transition: all 0.3s ease;
         }
         #mobile-nav-toggle.active { background: #FFD700; color: black; transform: rotate(45deg); }
         #mobile-nav-items {
-            display: flex; flex-direction: column; gap: 8px; align-items: flex-start; /* Alinea items a la izquierda */
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            align-items: flex-end; /* Alinea items a la derecha */
             margin-bottom: 10px;
-            transform-origin: left center; /* Origen de la animación desde la izquierda */
+            transform-origin: right center; /* Origen de la animación desde la derecha */
             transform: scale(0); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         #mobile-nav-items.open { transform: scale(1); opacity: 1; }
         .mobile-nav-link {
-            background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: 8px;
-            border-left: 3px solid #FFD700; /* Borde al lado izquierdo */
-            border-right: none;
-            color: white; font-weight: bold; font-size: 14px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s; display: flex; align-items: center; gap: 8px;
+            background: rgba(0, 0, 0, 0.8); 
+            backdrop-filter: blur(8px); 
+            padding: 8px 16px; 
+            border-radius: 8px;
+            border-right: 3px solid #FFD700; /* Borde al lado derecho */
+            border-left: none;
+            color: white; 
+            font-weight: bold; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            transition: transform 0.2s; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
         }
         .mobile-nav-link:active { transform: scale(0.95); background: #FFD700; color: black; }
     </style>
@@ -413,7 +438,7 @@
         </div>
     </div>
 
-    <!-- MENÚ FLOTANTE MÓVIL (IZQUIERDA) -->
+    <!-- MENÚ FLOTANTE MÓVIL (DERECHA) -->
     <div id="mobile-nav-container" class="lg:hidden no-print-area">
         <div id="mobile-nav-items">
             <a href="#inicio" onclick="closeMobileMenu()" class="mobile-nav-link">Inicio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home text-[#FFD700]"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a>
