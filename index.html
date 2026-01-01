@@ -8,7 +8,9 @@
     <title>YSPSTAR | Historias Infantiles con IA - Cuentos Personalizados</title>
     <meta name="description" content="Crea cuentos infantiles únicos y personalizados con Inteligencia Artificial en YSPSTAR. Fomenta la lectura con historias mágicas generadas al instante para niños.">
     <meta name="keywords" content="YSPSTAR, cuentos infantiles IA, historias personalizadas, inteligencia artificial para niños, cuentos para dormir, generador de historias, educación infantil">
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <!-- MEJORA SEO: Directivas de indexación más agresivas -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="YSPSTAR">
     <link rel="canonical" href="https://yspstar.online/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
 
@@ -337,18 +339,29 @@
             pointer-events: auto;
         }
 
-        /* Mobile State: Bottom Right, above action bar */
+        /* Mobile State: Vertically Centered on Right Edge */
         .mobile-dock {
-            bottom: 100px; /* Above the 60-80px bottom bar */
-            right: 24px;   /* Separated from edge */
-            align-items: flex-end;
+            top: 50%;
+            right: 0; /* Aligned to right edge */
+            transform: translateY(-50%) translateX(100px); /* Hidden state relative to centered Y */
+            padding-right: 12px; /* Small padding from edge */
+        }
+        
+        #floating-dock.visible.mobile-dock {
+             transform: translateY(-50%) translateX(0);
         }
 
         /* Desktop State: Standard Bottom Right */
         @media (min-width: 1024px) {
             .mobile-dock {
+                top: auto;
                 bottom: 24px;
                 right: 24px;
+                transform: translateX(100px); /* Reset Y transform, keep X hidden state */
+                padding-right: 0;
+            }
+            #floating-dock.visible.mobile-dock {
+                 transform: translateX(0);
             }
         }
 
@@ -547,7 +560,7 @@
     <header id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-[#050505]"></div>
-            <img id="hero-img" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2000&auto=format&fit=crop" alt="Hero Background" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000 will-change-transform">
+            <img id="hero-img" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2000&auto=format&fit=crop" alt="YSPSTAR Cuentos Personalizados con IA - Hero" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000 will-change-transform">
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center md:text-left w-full">
@@ -556,8 +569,9 @@
             </div>
             
             <h1 class="font-display font-black text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.9] mb-8 text-white drop-shadow-2xl">
-                <span class="block reveal-text visible">HISTORIAS</span>
-                <span class="block text-gold-gradient reveal-text visible" style="transition-delay: 0.2s">INFINITAS</span>
+                <span class="sr-only">YSPSTAR: Plataforma de Historias Infantiles con Inteligencia Artificial</span>
+                <span class="block reveal-text visible" aria-hidden="true">HISTORIAS</span>
+                <span class="block text-gold-gradient reveal-text visible" aria-hidden="true" style="transition-delay: 0.2s">INFINITAS</span>
             </h1>
             
             <p class="text-gray-300 text-lg md:text-2xl max-w-xl mb-12 leading-relaxed animate-[fadeInUp_1s_ease-out_0.8s_forwards] opacity-0 translate-y-8 font-medium">
@@ -606,7 +620,7 @@
                 </div>
                 <div class="order-1 md:order-2 relative h-[500px] scroll-reveal opacity-0-start">
                     <div class="absolute inset-0 bg-gradient-to-tr from-[#FFD700] to-transparent opacity-20 transform translate-x-4 translate-y-4"></div>
-                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover relative z-10 grayscale hover:grayscale-0 transition-all duration-700 border border-white/10" alt="Lectura Mágica">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover relative z-10 grayscale hover:grayscale-0 transition-all duration-700 border border-white/10" alt="YSPSTAR Lectura Mágica Infantil">
                 </div>
             </div>
         </div>
@@ -644,7 +658,7 @@
                 
                 <div class="product-card md:col-span-2 group relative overflow-hidden rounded-lg bg-[#111] border border-white/10 hover:border-[#FFD700] cursor-pointer scroll-reveal shadow-2xl opacity-0-start lightbox-trigger" data-category="fantasia" data-original-class="md:col-span-2" data-title="Reino de Cristal" data-desc="Una aventura épica en un mundo donde las montañas cantan.">
                     <div class="absolute inset-0">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40" alt="YSPSTAR Cuento Fantasía Reino de Cristal">
                     </div>
                     <div class="absolute bottom-0 left-0 p-10 w-full bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none">
                         <span class="inline-block px-4 py-1 mb-4 text-xs font-black tracking-[0.2em] text-black bg-gradient-to-r from-[#FFD700] to-[#DAA520] rounded-sm shadow-lg">DESTACADO</span>
@@ -655,7 +669,7 @@
 
                 <div class="product-card group relative overflow-hidden rounded-lg bg-[#111] border border-white/10 hover:border-[#FFD700] cursor-pointer scroll-reveal delay-100 shadow-2xl opacity-0-start lightbox-trigger product-hidden" data-category="educativo" data-original-class="md:row-span-2" data-title="El Robot Curioso" data-desc="Aprende sobre ciencia y amistad con un pequeño robot.">
                     <div class="absolute inset-0">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-30">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-30" alt="YSPSTAR Cuento Educativo Robot Curioso">
                     </div>
                     <div class="absolute top-0 left-0 p-8"><span class="inline-block px-3 py-1 text-xs font-black tracking-widest text-[#FFD700] border-2 border-[#FFD700] rounded-sm">STEM</span></div>
                     <div class="absolute bottom-0 left-0 p-8 w-full pointer-events-none">
@@ -669,7 +683,7 @@
 
                 <div class="product-card group relative overflow-hidden rounded-lg bg-[#111] border border-white/10 hover:border-[#FFD700] cursor-pointer scroll-reveal delay-200 shadow-xl opacity-0-start lightbox-trigger" data-category="fantasia" data-title="Dragones de Neón" data-desc="Vuelo nocturno por ciudades futuristas.">
                     <div class="absolute inset-0">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40" alt="YSPSTAR Cuento Fantasía Dragones de Neón">
                     </div>
                     <div class="absolute bottom-0 left-0 p-8 w-full bg-black/40 hover:bg-black/20 pointer-events-none">
                         <h3 class="text-2xl font-display font-bold text-white mb-2 group-hover:text-[#FFD700]">Dragones de Neón</h3>
@@ -712,7 +726,7 @@
                 </div>
             </div>
             <div class="relative h-[60vh] md:h-auto order-1 md:order-2 overflow-hidden">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="YSPSTAR Tecnología LLM">
                 <div class="absolute inset-0 bg-[#B8860B]/20 mix-blend-multiply"></div>
                 <div class="absolute bottom-12 left-12 bg-black/90 backdrop-blur-md p-10 border-l-4 border-[#FFD700] max-w-sm shadow-2xl">
                     <p class="font-display font-black text-4xl text-white">LLM POWERED</p>
@@ -804,7 +818,7 @@
                 </div>
             </div>
             <div class="mt-32 pt-8 border-t border-white/10 text-sm text-gray-500 font-bold">
-                <p>© <span id="current-year">2025</span> YSPSTAR. Todos los derechos reservados.</p>
+                <p>© <span id="current-year">2025</span> YSPSTAR. Todos los derechos reservados. | Plataforma Educativa IA</p>
             </div>
         </div>
     </footer>
