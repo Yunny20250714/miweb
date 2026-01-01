@@ -281,26 +281,29 @@
             gap: 16px;
             align-items: center;
             pointer-events: none; /* Container passes clicks through */
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            transform: translateX(100px); /* Initially hidden off-screen to the right */
         }
 
-        /* Mobile State: Centered Right */
+        #floating-dock.visible {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        /* Mobile State: Bottom Right, above action bar */
         .mobile-dock {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%) translateX(0);
-            padding-right: 12px;
+            bottom: 100px; /* Above the 60-80px bottom bar */
+            right: 24px;   /* Separated from edge */
+            align-items: flex-end;
         }
 
-        /* Desktop State: Bottom Right */
+        /* Desktop State: Standard Bottom Right */
         @media (min-width: 1024px) {
             .mobile-dock {
-                top: auto;
                 bottom: 24px;
                 right: 24px;
-                transform: none;
-                padding-right: 0;
-                align-items: flex-end;
             }
         }
 
@@ -922,12 +925,12 @@
 
         window.addEventListener('scroll', throttle(() => {
             const nav = document.getElementById('navbar');
-            const mobileNav = document.getElementById('mobile-nav-container');
+            const dock = document.getElementById('floating-dock'); // Changed from mobile-nav-container
 
             if (window.scrollY > 100) {
-                if(mobileNav) mobileNav.classList.add('visible');
+                if(dock) dock.classList.add('visible');
             } else {
-                if(mobileNav) mobileNav.classList.remove('visible');
+                if(dock) dock.classList.remove('visible');
             }
 
             if (window.scrollY > 50) {
